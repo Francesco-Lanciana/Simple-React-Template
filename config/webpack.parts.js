@@ -166,9 +166,6 @@ exports.loadJavaScript = ({ include, exclude }) => ({
         exclude,
 
         loader: 'babel-loader',
-        options: {
-          presets: ['react', 'env']
-        }
       },
     ],
   },

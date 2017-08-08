@@ -16,9 +16,7 @@ const commonConfig = merge([
     entry: PATHS.app,
     buildPath: PATHS.build,
   }),
-  {
-    context: PATHS.app,
-  },
+  {},
 ]);
 
 module.exports = (env) => {
