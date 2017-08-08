@@ -38,22 +38,22 @@ const productionConfig = merge([
       safe: true,
     },
   }),
-  // parts.extractBundles([
-  //   {
-  //     name: 'vendor',
-  //     chunks: ['app'],
-  //     minChunks: ({ resource }) => (
-  //       resource &&
-  //       resource.indexOf('node_modules') >= 0 &&
-  //       resource.match(/\.js$/)
-  //     ),
-  //   },
-  //   {
-  //     name: 'manifest',
-  //     chunks: ['vendor'],
-  //     minChunks: Infinity,
-  //   },
-  // ]),
+  parts.extractBundles([
+    {
+      name: 'vendor',
+      chunks: ['app'],
+      minChunks: ({ resource }) => (
+        resource &&
+        resource.indexOf('node_modules') >= 0 &&
+        resource.match(/\.js$/)
+      ),
+    },
+    {
+      name: 'manifest',
+      chunks: ['vendor'],
+      minChunks: Infinity,
+    },
+  ]),
   parts.extractStyleSheets(),
   parts.purifyCSS({
     paths: glob.sync(`${PATHS.app}/**/*.js`, {nodir: true}),
@@ -70,6 +70,7 @@ const productionConfig = merge([
       publicPath: '../',
     },
   }),
+  parts.extractHTML(),
   parts.loadJavaScript({
     include: PATHS.app,
     exclude: /(node_modules|bower_components)/,

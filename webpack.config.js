@@ -6,6 +6,7 @@ const common = require('./config/webpack.common');
 const devConfig = require('./config/webpack.development');
 const prodConfig = require('./config/webpack.production');
 
+
 const PATHS = {
   app: path.join(__dirname, 'app'),
   build: path.join(__dirname, 'build'),
@@ -22,9 +23,9 @@ const commonConfig = merge([
 module.exports = (env) => {
 
   if (env === 'production') {
-    return merge(commonConfig, prodConfig);
+    return merge(commonConfig, prodConfig());
   }
 
-  return merge(commonConfig, devConfig);
+  return merge(commonConfig, devConfig());
 
 };

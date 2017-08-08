@@ -11,6 +11,7 @@ const developmentConfig = merge([
   parts.loadStyleSheets({ exlude: /node_modules/ }),
   parts.loadImages(),
   parts.loadFonts(),
+  parts.extractHTML(),
 ]);
 
 module.exports = () => {

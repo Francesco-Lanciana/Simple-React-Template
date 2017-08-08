@@ -195,6 +195,14 @@ exports.minifyJavaScript = () => ({
   ],
 });
 
+exports.extractHTML = () => ({
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Webpack demo',
+    }),
+  ],
+});
+
 exports.minifyCSS = ({ options }) => ({
   plugins: [
     new OptimizeCSSAssetsPlugin({
